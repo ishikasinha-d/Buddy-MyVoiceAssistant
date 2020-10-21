@@ -1,0 +1,81 @@
+import speech_recognition as sr
+import pyttsx3 as ptx
+import random
+import os
+
+
+def say():
+    ptx.speak(random.choice(["Okay; launching", "As you say", "As you command", "Just a second", "Yeah sure"]))
+
+
+ptx.speak("Welcome to my tools")
+r = sr.Recognizer()
+
+while True:
+    print("""Menu 
+     \n 
+     Say 1 : To launch an application
+     Say 2:  To play games
+     Say 3:  To read pdf
+     Say 4:  To exit""")
+
+    with sr.Microphone() as choice:
+        ptx.speak("What option do you choose?......Say ")
+        chosen = r.listen(choice)
+        ptx.speak("Okay")
+
+    ch = r.recognize_google(chosen)
+    print(ch)
+    if( "one" in ch or "1" in ch or "won" in ch):
+        ptx.speak("What application do you want to launch?")
+        with sr.Microphone() as source:
+            print("say")
+            audio = r.listen(source)
+            print("okay")
+
+        x = r.recognize_google(audio)
+
+        if (("run" in x or "execute" in x or "launch" in x) and ("chrome" in x or "google chrome" in x)):
+            say()
+            os.system("chrome")
+
+        if (("run" in x or "execute" in x or "launch" in x) and (
+                "text editor" in x or "editor" in x or "notepad" in x)):
+            say()
+            os.system("notepad")
+        if ("exit" in x or "nothing" in x):
+            break
+    elif ("two" in ch or "2" in ch or "to" in ch):
+        ptx.speak("Which game you want to play?")
+        print("""
+        1. Hangman
+        2. Rock Paper Scissors
+        3. Tic Tac Toe \n""")
+
+        with sr.Microphone() as source:
+            print("say")
+            audio = r.listen(source)
+            print("okay")
+
+        x = r.recognize_google(audio)
+
+        if("Hangman" in x or "hangman" in x):
+            import hangman
+            hangman.hang()
+        elif("rock paper scissor" in x or "rock" in x or "paper" in x or "scissor" in x):
+            import rock_paper_scissors
+            rock_paper_scissors.play_rps()
+        elif("tic tac toe" in x or "tictactoe" in x or "tic" in x or "tac" in x or "toe" in x):
+            import tictactoe
+            tictactoe.playttt()
+
+
+
+
+
+
+
+
+
+
+
