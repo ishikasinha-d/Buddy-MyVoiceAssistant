@@ -52,7 +52,8 @@ while True:
             tictactoe.playttt()
 
     elif( "read pdf" in ch or "read" in ch or "pdf" in ch):
-        ptx.speak("will add this feature soon")
+        import ReadPDF
+        ptx.speak("For now , I read a dummy file.....you can add the pdf file you want me to read")
 
     elif("set an alarm" in ch or "set alarm" in ch or "set" in ch or "alarm" in x):
         import Alarm
@@ -60,8 +61,6 @@ while True:
         break
     else:
         ptx.speak("Feature not supported yet")
-
-
 
 
 
