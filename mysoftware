@@ -4,7 +4,7 @@ import random
 import os
 
 
-ptx.speak("Welcome to my tools")
+ptx.speak("Welcome......here is my menu")
 r = sr.Recognizer()
 
 while True:
@@ -55,7 +55,7 @@ while True:
         import ReadPDF
         ptx.speak("For now , I read a dummy file.....you can add the pdf file you want me to read")
 
-    elif("set an alarm" in ch or "set alarm" in ch or "set" in ch or "alarm" in x):
+    elif("set an alarm" in ch or "set alarm" in ch or "set" in ch or "alarm" in ch):
         import Alarm
     elif("exit" in ch):
         break
