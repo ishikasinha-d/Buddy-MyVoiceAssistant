@@ -4,10 +4,11 @@ import random
 import os
 
 
-ptx.speak("Welcome......here is my menu")
+ptx.speak("Hello.....I am your buddy......here is my menu")
 r = sr.Recognizer()
 
 while True:
+    os.system("cls")
     print("""Menu 
      \n 
      Option 1 : Launch an application
@@ -61,6 +62,7 @@ while True:
         break
     else:
         ptx.speak("Feature not supported yet")
+    input("Press enter to continue")
 
 
 
